@@ -15,6 +15,9 @@ public:
 	}
 	void Insert(T);
 	bool Remove(T);
+	void Append(T tElement);
+private:
+	void tempForAppend(std::shared_ptr<CNode<T>>&, T tElement);
 };
 #endif // !CLIST_H
 
@@ -50,6 +53,33 @@ template<typename T> bool CList<T>::Remove(T tElement) {
 	if (!head)
 		return false;
 	if (*(head->Element()) == tElement) {
-		std::cout << "vvv  " << std::endl;
+		head = head->Next();
+		--dwCount;
+		return true;
 	}
+	std::shared_ptr<CNode<T>> tmp = head;
+	std::shared_ptr<CNode<T>> lst = head->Next();
+	while (lst) {
+		if (*(lst->Element()) == tElement) {
+			tmp->Next() = lst->Next();
+			--dwCount;
+			return true;
+		}
+		lst = lst->Next();
+		tmp = tmp->Next();
+	}
+	return false;
+}
+
+template<typename T> void CList<T>::Append(T tElement) {
+	tempForAppend(head, tElement);
+}
+template<typename T> 
+void CList<T>::tempForAppend(std::shared_ptr<CNode<T>> &node, T tElement) {
+	if (!node) {
+		node = std::make_shared<CNode<T>>(tElement);
+		++dwCount;
+		return;
+	}
+	tempForAppend(node->Next(),tElement);
 }

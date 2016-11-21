@@ -28,8 +28,10 @@ void test3() {
 void test4() {
 	CList<int> clist;
 	clist.Insert(32);
-	clist.Remove(32);
-	clist.Insert(32);
+	
+	clist.Insert(23);
+	//clist.Remove(2);
+	clist.Append(50);
 }
 
 int _tmain(int argc, TCHAR *argv[]) {

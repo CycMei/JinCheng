@@ -9,7 +9,7 @@ private:
 public:
 	explicit CNode(T);
 	std::shared_ptr<T> Element() const;
-	std::shared_ptr<CNode<T>> Next();
+	std::shared_ptr<CNode<T>> &Next();
 };
 #endif // !CNODE_H
 
@@ -26,6 +26,6 @@ template<typename T> std::shared_ptr<T> CNode<T>::Element() const {
 	return tElement;
 }
 
-template<typename T> std::shared_ptr<CNode<T>> CNode<T>::Next() {
+template<typename T> std::shared_ptr<CNode<T>> &CNode<T>::Next() {
 	return next;
 }
