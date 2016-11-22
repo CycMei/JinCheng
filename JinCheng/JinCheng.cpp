@@ -25,16 +25,19 @@ void test3() {
 	myFigure();
 }
 
+void myCList();
 void test4() {
-	CList<int> clist;
-	clist.Insert(32);
-	
-	clist.Insert(23);
-	//clist.Remove(2);
-	clist.Append(50);
+	myCList();
+}
+
+void myProcessDemo();
+void myProcessDemo1();
+void test5() {
+	//myProcessDemo();
+	myProcessDemo1();
 }
 
 int _tmain(int argc, TCHAR *argv[]) {
-	test4();
+	test5();
 }
 

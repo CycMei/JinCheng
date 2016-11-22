@@ -16,6 +16,16 @@ public:
 	void Insert(T);
 	bool Remove(T);
 	void Append(T tElement);
+	DWORD Count() const {
+		return dwCount;
+	}
+	T *Head() {
+		return &*(head->Element());
+	}
+	T *GetFirst() {
+		return head != nullptr ? Head() : nullptr;
+	}
+	T *GetLast();
 private:
 	void tempForAppend(std::shared_ptr<CNode<T>>&, T tElement);
 };
@@ -82,4 +92,27 @@ void CList<T>::tempForAppend(std::shared_ptr<CNode<T>> &node, T tElement) {
 		return;
 	}
 	tempForAppend(node->Next(),tElement);
+}
+
+template<typename T> T *CList<T>::GetLast() {
+	if (head) {
+		std::shared_ptr<CNode<T>> tmp = head;
+		while (tmp->Next()) {
+			tmp = tmp->Next();
+		}
+		return &*(tmp->Element());
+	}
+}
+
+
+
+void myCList() {
+	CList<int> clist;
+	clist.Insert(32);
+
+	clist.Insert(23);
+	//clist.Remove(2);
+	clist.Append(50);
+	clist.GetFirst();
+	clist.GetLast();
 }

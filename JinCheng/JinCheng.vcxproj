@@ -159,6 +159,7 @@
     <ClCompile Include="CPerson.cpp" />
     <ClCompile Include="CPerson.h" />
     <ClCompile Include="JinCheng.cpp" />
+    <ClCompile Include="ProcessDemo.cpp" />
     <ClCompile Include="SComplex.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
